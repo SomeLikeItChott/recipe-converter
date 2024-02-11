@@ -84,22 +84,6 @@ button:focus-visible {
   height: 200px;
 }
 
-#converter {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  text-align: start;
-  justify-content: center;
-  gap: 2em;
-}
-
 #controls {
   margin: 1em 0;
-}
-
-.ingredients-wrapper {
-  display: flex;
-  flex-direction: column;
-  width:100%;
-  max-width: 25em;
 }

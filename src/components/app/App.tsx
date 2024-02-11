@@ -51,43 +51,42 @@ function App() {
 						<li><RecipeChooser onClick={() => enterPresetRecipe(sweetPotatoPie)}>Sweet potato pie</RecipeChooser></li>
 					</RecipeList>
 				</div>
-				<div id="converter">
-					<div className="ingredients-wrapper">
+				<Converter>
+					<RawRecipe className="ingredients-wrapper">
 						Volume recipe:
 						<textarea value={rawRecipe} onChange={e => setRawRecipe(e.target.value)} placeholder='Paste ingredient list here'></textarea>
-					</div>
-					<div className="ingredients-wrapper">
+					</RawRecipe>
+					<ConvertedRecipe className="ingredients-wrapper">
 						Weight recipe:
 						<textarea readOnly value={convertedRecipe} />
-					</div>
-				</div>
-
-				<div>Convert to: 
-					{['grams', 'ounces'].map((unit) => 
-						<label>
-							<input type="radio" 
-								key={unit} 
-								value={unit} 
-								checked={weightUnit === unit} 
-								onChange={handleWeightUnitChange} />
-							{capitalizeFirstLetter(unit)}
-						</label>
-					)}
-					<ButtonWrapper>
-						<ConvertButton onClick={convert} isFlashing={isButtonFlashing}>
+					</ConvertedRecipe>
+					<Settings>Convert to: 
+						{['grams', 'ounces'].map((unit) => 
+							<label>
+								<input type="radio" 
+									key={unit} 
+									value={unit} 
+									checked={weightUnit === unit} 
+									onChange={handleWeightUnitChange} />
+								{capitalizeFirstLetter(unit)}
+							</label>
+						)}
+						<ButtonWrapper>
+							<ConvertButton onClick={convert} isFlashing={isButtonFlashing}>
 						Convert
-						</ConvertButton>
-					</ButtonWrapper>
-					<SettingsAccordion 
-						verboseMode={verboseMode} 
-						setVerboseMode={setVerboseMode} 
-						doNotConvertBelowGrams={doNotConvertBelowGrams}
-						setDoNotConvertBelowGrams={setDoNotConvertBelowGrams}
-						convertButter={convertButter}
-						setConvertButter={setConvertButter}
-						convertEggs={convertEggs}
-						setConvertEggs={setConvertEggs} />
-				</div>
+							</ConvertButton>
+						</ButtonWrapper>
+						<SettingsAccordion 
+							verboseMode={verboseMode} 
+							setVerboseMode={setVerboseMode} 
+							doNotConvertBelowGrams={doNotConvertBelowGrams}
+							setDoNotConvertBelowGrams={setDoNotConvertBelowGrams}
+							convertButter={convertButter}
+							setConvertButter={setConvertButter}
+							convertEggs={convertEggs}
+							setConvertEggs={setConvertEggs} />
+					</Settings>
+				</Converter>
 				<h6>Ingredient densities taken from <a href="https://www.kingarthurbaking.com/learn/ingredient-weight-chart">King Arthur Flour Ingredient Weight Chart.</a></h6>
 			</div>			
 		</>
@@ -98,7 +97,39 @@ const TitleText = styled.h1`
 	font-size: 36px;
 	@media (min-width: 700px) {
 		font-size: 52px;
-	  }
+	}
+`;
+
+const Converter = styled.div`
+	display: grid;
+	gap: 1em;
+	justify-content: center;
+	justify-items: center;
+`;
+
+const RecipeWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	width:100%;
+	max-width: 25em;
+`;
+
+const RawRecipe = styled(RecipeWrapper)`
+	@media (min-width: 700px) {
+		justify-self: end;
+	}
+`;
+
+const ConvertedRecipe = styled(RecipeWrapper)`
+	@media (min-width: 700px) {
+		justify-self: start;
+	}
+`;
+
+const Settings = styled.div`
+	@media (min-width: 700px) {
+		grid-column-start: span 2;
+	}
 `;
 
 const ButtonWrapper = styled.div`

@@ -18,14 +18,12 @@ Make it so that the convert button is between the two textboxes on a mobile view
 unit tests
 better error handling (ie make it communicate about what caused the error. or just do anything that's not doing nothing)
 fix convert to mass function (it could be like five different function)
-put on github
-host it somewhere
+switch to more comprehensive usda database ( i think it might be at https://fdc.nal.usda.gov/? you have link on other computer)
 
 Notes:
-will need to handle, either here or in scraper, these special cases:
+will need to handle, either in converter or in scraper, these special cases:
 (wow! what a good time to write some unit tests!!!)
 1 large egg
 1/4 cup unsalted butter, cubed
 
-also probably handle an error better than just not showing anything
 */
