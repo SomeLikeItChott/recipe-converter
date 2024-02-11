@@ -4,7 +4,7 @@ import convertToMass from '../../convertToMass';
 import Accordion from '../accordion/Accordion';
 import styled, { css } from 'styled-components';
 import InfoPopover from '../popover/InfoPopover';
-import { bananaBread, snickerdoodles, tollHouseCookies } from '../../assets/PresetRecipes';
+import { bananaBread, sweetPotatoPie, tollHouseCookies } from '../../assets/PresetRecipes';
 
 function App() {
 	const [rawRecipe, setRawRecipe] = useState<string>('');
@@ -54,7 +54,7 @@ function App() {
 					<RecipeList>
 						<li><RecipeChooser onClick={() => enterPresetRecipe(tollHouseCookies)}>Chocolate chip cookies</RecipeChooser></li>
 						<li><RecipeChooser onClick={() => enterPresetRecipe(bananaBread)}>Banana bread</RecipeChooser></li>
-						<li><RecipeChooser onClick={() => enterPresetRecipe(snickerdoodles)}>Snickerdoodles</RecipeChooser></li>
+						<li><RecipeChooser onClick={() => enterPresetRecipe(sweetPotatoPie)}>Sweet potato pie</RecipeChooser></li>
 					</RecipeList>
 				</div>
 				<div id="converter">

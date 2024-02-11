@@ -15,30 +15,34 @@ Bake in the preheated oven until a toothpick inserted into the center comes out 
 
 (Copied from https://www.allrecipes.com/recipe/20144/banana-banana-bread/) `;
 
-export const snickerdoodles = `1 1/2 cups sugar
-1/2 cup butter, softened
-1/2 cup shortening
-2 eggs
-2 3/4 cups Gold Medal™ All Purpose Flour
-2 teaspoons cream of tartar
-1 teaspoon baking soda
-1/4 teaspoon salt
-1/4 cup sugar
-2 teaspoons ground cinnamon
+export const sweetPotatoPie = `1 (1 pound) sweet potato, with skin
+½ cup butter, softened
+1 cup white sugar
+½ cup milk
+2 large eggs
+½ teaspoon ground nutmeg
+½ teaspoon ground cinnamon
+1 teaspoon vanilla extract
+1 (9 inch) unbaked pie crust
 
-Heat oven to 400°F.
+Directions
+Place whole sweet potato in pot and cover with water; bring to a boil. Boil until tender when pierced with a fork, 40 to 50 minutes.
 
-Mix 1 1/2 cups sugar, the butter, shortening and eggs in large bowl.
+Preheat the oven to 350 degrees F (175 degrees C).
 
-Stir in flour, cream of tartar, baking soda and salt.
+Remove sweet potato from the pot and run under cold water. Remove and discard skin.
 
-Mix 1/4 cup sugar and the cinnamon.
+Break sweet potato flesh apart and place in a bowl. Add butter and mix with an electric mixer until well combined.
 
-Shape dough into 1 1/4-inch balls. Roll balls in cinnamon-sugar mixture. Place 2 inches apart on ungreased cookie sheet.
+Add sugar, milk, eggs, nutmeg, cinnamon, and vanilla; beat on medium speed until mixture is smooth.
 
-Bake 8 to 10 minutes or until set. Remove from cookie sheet to wire rack. 
+Pour filling into unbaked pie crust.
 
-(taken from https://www.bettycrocker.com/recipes/classic-snickerdoodle-cookies/7ffc92a9-d847-4869-9ecb-99de3b751b14)`;
+Bake in the preheated oven until a knife inserted in the center comes out clean, 55 to 60 minutes.
+
+Remove from the oven and let cool before serving. 
+
+(taken from https://www.allrecipes.com/recipe/12142/sweet-potato-pie-i/)`;
 
 export const tollHouseCookies = `2 ¼ cups all-purpose flour
 1 teaspoon baking soda
