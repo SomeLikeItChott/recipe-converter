@@ -13,11 +13,10 @@ function Accordion({ children, toggleText, className}: AccordionProps) {
 
 	return (
 		<AccordionWrapper className={className}>
-			<a onClick={handleToggle}>{toggleText} <Caret isOpen={isOpen}>^</Caret></a>
+			<ToggleLink onClick={handleToggle}>{toggleText} <Caret isOpen={isOpen}>^</Caret></ToggleLink>
 			<ContentWrapper isOpen={isOpen}>
 				{children}
 			</ContentWrapper>
-			
 		</AccordionWrapper>
 	);
 }
@@ -54,6 +53,10 @@ const Caret = styled.span<{ isOpen: boolean; }>`
 		top: 4px;
 		transform: rotate(0deg);
 		`};
+`;
+
+const ToggleLink = styled.a`
+	cursor: pointer;
 `;
 
 export default Accordion;
