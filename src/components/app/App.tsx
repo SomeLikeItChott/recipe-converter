@@ -1,10 +1,9 @@
 import { ChangeEvent, useState } from 'react';
 import './App.css';
 import convertToMass from '../../convertToMass';
-import Accordion from '../accordion/Accordion';
 import styled, { css } from 'styled-components';
-import InfoPopover from '../popover/InfoPopover';
 import { bananaBread, sweetPotatoPie, tollHouseCookies } from '../../assets/PresetRecipes';
+import SettingsAccordion from '../settingsAccordion/settingsAccordion';
 
 function App() {
 	const [rawRecipe, setRawRecipe] = useState<string>('');
@@ -26,11 +25,6 @@ function App() {
 
 	const capitalizeFirstLetter = (string: string) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
-	};
-
-	const handleDoNotConvertBelowGramsChange = (e: ChangeEvent<HTMLInputElement>) => {
-		//do not allow non-digit characters
-		setDoNotConvertBelowGrams(e.target.value.replace(/[^\d]/gi, ''));
 	};
 
 	const flashConvertButton = () => {
@@ -67,6 +61,7 @@ function App() {
 						<textarea readOnly value={convertedRecipe} />
 					</div>
 				</div>
+
 				<div>Convert to: 
 					{['grams', 'ounces'].map((unit) => 
 						<label>
@@ -78,43 +73,21 @@ function App() {
 							{capitalizeFirstLetter(unit)}
 						</label>
 					)}
-				</div>
-				<ButtonWrapper>
-					<ConvertButton onClick={convert} isFlashing={isButtonFlashing}>
+					<ButtonWrapper>
+						<ConvertButton onClick={convert} isFlashing={isButtonFlashing}>
 						Convert
-					</ConvertButton>
-				</ButtonWrapper>
-				<SettingsAccordion toggleText='Advanced settings'>
-					<div id="controls">
-						<div>
-							<label>
-								Give conversion information?	
-								<InfoPopover>The converter tells you what ingredients it detected in the recipe so that you can double check its work, but you can disable this for a nicer-looking recipe to copy and paste.</InfoPopover>				
-								<input id="verboseMode" type="checkbox" checked={verboseMode} onChange={(e) => setVerboseMode(e.target.checked)} />
-							</label>
-						</div>
-						<div>
-							<label>
-								Do not convert to weight below this many grams:	
-								<InfoPopover>It's hard to measure very small amounts on a scale. Use this setting to adjust which small amounts will be converted and which will be left as volume.</InfoPopover>				
-								<input type="text" id="doNotConvertBelowGrams" value={doNotConvertBelowGrams} onChange={handleDoNotConvertBelowGramsChange}/>
-							</label>
-						</div>
-						<div>
-							<label>
-								Convert butter amounts?					
-								<input id="convertButter" type="checkbox" checked={convertButter} onChange={(e) => setConvertButter(e.target.checked)} />
-							</label>
-						</div>
-						<div>
-							<label>
-								Convert egg amounts?
-								<input id="convertEggs" type="checkbox" checked={convertEggs} onChange={(e) => setConvertEggs(e.target.checked)} />
-							</label>
-						</div>
-						<p>Note: if the converter isn't detecting ingredients correctly, it may help to remove extraneous information or parentheticals from the ingredients list.</p>
-					</div>
-				</SettingsAccordion>
+						</ConvertButton>
+					</ButtonWrapper>
+					<SettingsAccordion 
+						verboseMode={verboseMode} 
+						setVerboseMode={setVerboseMode} 
+						doNotConvertBelowGrams={doNotConvertBelowGrams}
+						setDoNotConvertBelowGrams={setDoNotConvertBelowGrams}
+						convertButter={convertButter}
+						setConvertButter={setConvertButter}
+						convertEggs={convertEggs}
+						setConvertEggs={setConvertEggs} />
+				</div>
 				<h6>Ingredient densities taken from <a href="https://www.kingarthurbaking.com/learn/ingredient-weight-chart">King Arthur Flour Ingredient Weight Chart.</a></h6>
 			</div>			
 		</>
@@ -135,10 +108,6 @@ const ButtonWrapper = styled.div`
 const RecipeList = styled.ul`
 	list-style-type: none;
 	padding: 0;
-`;
-
-const SettingsAccordion = styled(Accordion)`
-	margin: 0.5em 0;
 `;
 
 const ConvertButton = styled.button<{ isFlashing: boolean; }>`
