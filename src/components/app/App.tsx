@@ -46,7 +46,7 @@ function App() {
 	return (
 		<>
 			<div id="main">
-				<h1>Volume to Weight Recipe Converter</h1>
+				<TitleText>Volume to Weight Recipe Converter</TitleText>
 				<p>
 					Measuring baking ingredients by weight instead of volume is generally more accurate and less messy. Check out <a href="https://www.seriouseats.com/how-to-measure-wet-dry-ingredients-for-baking-accurately-best-method#toc-measuring-by-weight-just-do-it">this article</a> for more information.
 				</p>
@@ -121,6 +121,13 @@ function App() {
 	);
 }
 
+const TitleText = styled.h1`
+	font-size: 36px;
+	@media (min-width: 700px) {
+		font-size: 52px;
+	  }
+`;
+
 const ButtonWrapper = styled.div`
 	margin: 1em 0;
 `;
@@ -146,6 +153,6 @@ const ConvertButton = styled.button<{ isFlashing: boolean; }>`
 
 const RecipeChooser = styled.a`
 	cursor: pointer;
-`
+`;
 
 export default App;
