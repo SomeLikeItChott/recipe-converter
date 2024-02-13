@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "scrape": "ts-node --esm src/scrapeWeights.ts"
+    "scrape": "ts-node --esm src/scraper/scrapeWeights.ts"
   },
   "dependencies": {
     "convert": "^4.13.0",
