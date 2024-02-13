@@ -14,7 +14,6 @@ todo: (not in order, do what calls to you)
 accessibility
 make textboxes prettier?
 styling
-Make it so that the convert button is between the two textboxes on a mobile view
 unit tests
 better error handling (ie make it communicate about what caused the error. or just do anything that's not doing nothing)
 fix convert to mass function (it could be like five different function)

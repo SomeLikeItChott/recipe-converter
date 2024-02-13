@@ -1,5 +1,5 @@
 import { parseIngredient } from 'parse-ingredient';
-// idk what's happening here. but it works (for now)
+// someone that knows more about typescript than me should look at this fix
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import convert from 'convert';
@@ -11,17 +11,8 @@ const convertToMass = (recipe: string, weightUnit: string, convertEggs: boolean,
 	const convertedRecipe: string[] = [];
 	lines.forEach(line => {
 		const ingredient = parseIngredient(line)[0];
-		// TODO this is terrible. don't look at these next couple lines. I'll fix it sometime I swear
-		let fuzzyResult
-		if (ingredient?.description === 'sugar') {
-			console.log('its sugar');
-			fuzzyResult = fuzzysort.go('white sugar', densities, {key: 'name', limit:1});
-		} else {
-			fuzzyResult = fuzzysort.go(ingredient?.description, densities, {key: 'name', limit:1});
-		}
-		console.log(ingredient?.description);
-		console.log(ingredient);
-		console.log(fuzzyResult);
+		const ingredientDescription = simplifyIngredientDescription(ingredient?.description);
+		const fuzzyResult = fuzzysort.go(ingredientDescription, densities, {key: 'name', limit:1});
 		try {
 			if(fuzzyResult.length != 0 
 			&& (convertEggs || !line.includes('egg')) 
@@ -71,5 +62,16 @@ function getVerboseInformation(verboseMode: boolean, result: { name: string; den
 
 function createConversionErrorMessage(ingredientDescription: string) {
 	return ('Error converting ' + ingredientDescription);
+}
+
+// the fuzzysorter gets confused by some common ingredients
+// ie 'sugar' is closer to 'brown sugar' than 'white sugar' according to it
+// so we manually fudge them a lil bit here
+function simplifyIngredientDescription(ingredientDescription: string) {
+	if (ingredientDescription === 'sugar') {
+		return 'white sugar';
+	} else {
+		return ingredientDescription;
+	}
 }
 
