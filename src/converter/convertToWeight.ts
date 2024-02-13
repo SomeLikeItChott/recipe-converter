@@ -4,9 +4,9 @@ import { parseIngredient } from 'parse-ingredient';
 // @ts-ignore
 import convert from 'convert';
 import fuzzysort from 'fuzzysort';
-import densities from './../densities.json';
+import densities from '../../densities.json';
 
-const convertToMass = (recipe: string, weightUnit: string, convertEggs: boolean, convertButter: boolean, verboseMode: boolean, doNotConvertBelowGrams: number) => {
+const convertToWeight = (recipe: string, weightUnit: string, convertEggs: boolean, convertButter: boolean, verboseMode: boolean, doNotConvertBelowGrams: number) => {
 	const lines = recipe.split(/\r?\n|\r|\n/g);
 	const convertedRecipe: string[] = [];
 	lines.forEach(line => {
@@ -26,8 +26,8 @@ const convertToMass = (recipe: string, weightUnit: string, convertEggs: boolean,
 					if (grams < doNotConvertBelowGrams) {
 						convertedRecipe.push(line);
 					} else {
-						const mass = convertGramsToWeightUnit(grams, weightUnit);
-						const conversion = mass + ' ' + weightUnit + ' ' + ingredient.description + getVerboseInformation(verboseMode, result);
+						const weight = convertGramsToWeightUnit(grams, weightUnit);
+						const conversion = weight + ' ' + weightUnit + ' ' + ingredient.description + getVerboseInformation(verboseMode, result);
 						convertedRecipe.push(conversion);
 					}
 				} else {
@@ -43,8 +43,6 @@ const convertToMass = (recipe: string, weightUnit: string, convertEggs: boolean,
 	});
 	return convertedRecipe.join('\n');
 };
-
-export default convertToMass;
 
 function convertGramsToWeightUnit(grams: number, weightUnit: string) {
 	if (weightUnit === 'grams') {
@@ -75,3 +73,4 @@ function simplifyIngredientDescription(ingredientDescription: string) {
 	}
 }
 
+export default convertToWeight;

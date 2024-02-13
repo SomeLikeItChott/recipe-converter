@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import './App.css';
-import convertToMass from '../../convertToMass';
+import convertToWeight from '../../converter/convertToWeight';
 import styled, { css } from 'styled-components';
 import { bananaBread, sweetPotatoPie, tollHouseCookies } from '../../assets/PresetRecipes';
 import SettingsAccordion from '../settingsAccordion/settingsAccordion';
@@ -16,7 +16,7 @@ function App() {
 	const [isButtonFlashing, setIsButtonFlashing] = useState<boolean>(false);
 
 	const convert = () => {
-		setConvertedRecipe(convertToMass(rawRecipe, weightUnit, convertEggs, convertButter, verboseMode, Number(doNotConvertBelowGrams)));
+		setConvertedRecipe(convertToWeight(rawRecipe, weightUnit, convertEggs, convertButter, verboseMode, Number(doNotConvertBelowGrams)));
 	};
 
 	const handleWeightUnitChange = (e: ChangeEvent<HTMLInputElement>) => {
