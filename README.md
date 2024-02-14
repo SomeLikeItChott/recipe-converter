@@ -1,6 +1,6 @@
-# [Recipe Converter](http://recipeconverter.shrug.click)
+# [Recipe Converter](https://recipeconverter.shrug.click)
 
-Check it out live at [recipeconverter.shrug.click](http://recipeconverter.shrug.click)!
+Check it out live at [recipeconverter.shrug.click](https://recipeconverter.shrug.click)!
 
 I got tired of having to convert recipes from volume to weight measurements manually (check out [this article](https://www.seriouseats.com/how-to-measure-wet-dry-ingredients-for-baking-accurately-best-method#toc-measuring-by-weight-just-do-it) to see why I do that), so I made a simple utility website to do it for me!
 
