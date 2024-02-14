@@ -1,4 +1,4 @@
-# Recipe Converter
+# [Recipe Converter](recipeconverter.shrug.click)
 
 Check it out live at [recipeconverter.shrug.click](recipeconverter.shrug.click)!
 
