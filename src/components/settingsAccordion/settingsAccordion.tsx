@@ -50,12 +50,17 @@ function SettingsAccordion({verboseMode,
 						<input id="convertButter" type="checkbox" checked={convertButter} onChange={(e) => setConvertButter(e.target.checked)} />
 					</label>
 				</div>
-				<div>
+				{/* NOTE: Disabling this until the egg conversion actually works
+				YES I know that the best thing to do is to delete it 
+				and retrieve it later from version control when i want to bring it back
+				but if I do that I'll forget this exists since this is a side project
+
+				 <div>
 					<label>
 					Convert egg amounts?
 						<input id="convertEggs" type="checkbox" checked={convertEggs} onChange={(e) => setConvertEggs(e.target.checked)} />
 					</label>
-				</div>
+				</div> */}
 				<p>Note: if the converter isn't detecting ingredients correctly, it may help to remove extraneous information or parentheticals from the ingredients list.</p>
 			</div>
 		</SpacedAccordion>);
