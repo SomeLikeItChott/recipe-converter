@@ -9,7 +9,14 @@ import densities from '../../densities.json';
 //Words that seem irrelevant to ingredient density
 //while trying to match ingredients we'll remove these if we can't find a match
 //this list is kind of ad hoc, add more if they will be helpful
-const fillerIngredientWords: string[] = ['semisweet', 'plain', 'sweet', 'bitter', 'salted', 'unsalted'];
+const fillerIngredientWords: string[] = ['semisweet', 
+	'plain', 
+	'sweet', 
+	'bitter', 
+	'salted', 
+	'unsalted', 
+	'overripe',
+	'ripe'];
 
 const convertToWeight = (recipe: string, weightUnit: string, convertEggs: boolean, convertButter: boolean, verboseMode: boolean, doNotConvertBelowGrams: number) => {
 	const lines = recipe.split(/\r?\n|\r|\n/g);
