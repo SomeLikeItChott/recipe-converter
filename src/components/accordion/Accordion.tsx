@@ -13,8 +13,8 @@ function Accordion({ children, toggleText, className}: AccordionProps) {
 
 	return (
 		<AccordionWrapper className={className}>
-			<ToggleLink onClick={handleToggle}>{toggleText} <Caret isOpen={isOpen}>^</Caret></ToggleLink>
-			<ContentWrapper isOpen={isOpen}>
+			<ToggleLink onClick={handleToggle}>{toggleText} <Caret $isOpen={isOpen}>^</Caret></ToggleLink>
+			<ContentWrapper $isOpen={isOpen}>
 				{children}
 			</ContentWrapper>
 		</AccordionWrapper>
@@ -30,25 +30,25 @@ const AccordionWrapper = styled.div`
 	its content will never be larger than 20em. 
 	that's a bad assumption! TODO fix it
 */
-const ContentWrapper = styled.div<{ isOpen: boolean; }>`
+const ContentWrapper = styled.div<{ $isOpen: boolean; }>`
 	transition: 0.4s ease;
 	overflow: hidden;
 	max-height: 0;
 	${props =>
-		props.isOpen &&
+		props.$isOpen &&
 		css`
 			max-height: 20em;
 		`};
 `;
 
-const Caret = styled.span<{ isOpen: boolean; }>`
+const Caret = styled.span<{ $isOpen: boolean; }>`
 	display: inline-block;
 	position: relative;
 	top: 0;
 	transition: 0.4s ease;
 	transform: rotate(180deg);
 	${props =>
-		props.isOpen &&
+		props.$isOpen &&
 		css`
 		top: 4px;
 		transform: rotate(0deg);

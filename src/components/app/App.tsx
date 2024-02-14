@@ -62,9 +62,8 @@ function App() {
 					</ConvertedRecipe>
 					<Settings>Convert to: 
 						{['grams', 'ounces'].map((unit) => 
-							<label>
+							<label key={unit}>
 								<input type="radio" 
-									key={unit} 
 									value={unit} 
 									checked={weightUnit === unit} 
 									onChange={handleWeightUnitChange} />
@@ -72,7 +71,7 @@ function App() {
 							</label>
 						)}
 						<ButtonWrapper>
-							<ConvertButton onClick={convert} isFlashing={isButtonFlashing}>
+							<ConvertButton onClick={convert} $isFlashing={isButtonFlashing}>
 						Convert
 							</ConvertButton>
 						</ButtonWrapper>
@@ -141,10 +140,10 @@ const RecipeList = styled.ul`
 	padding: 0;
 `;
 
-const ConvertButton = styled.button<{ isFlashing: boolean; }>`
+const ConvertButton = styled.button<{ $isFlashing: boolean; }>`
 	transition: background-color 0.8s cubic-bezier(0.37, 0, 0.63, 1);
 	${props =>
-		props.isFlashing &&
+		props.$isFlashing &&
 		css`
 		background-color: #4dff88;
 
