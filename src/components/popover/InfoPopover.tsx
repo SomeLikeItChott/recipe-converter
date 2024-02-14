@@ -6,25 +6,55 @@ export interface InfoPopoverProps {
 
 function InfoPopover({children}: InfoPopoverProps) {
 	return (
-		<Wrapper>
-			<InfoText>
+		<>
+			<SmallScreenOnly>
+				{children}
+			</SmallScreenOnly>
+			<LargeScreenOnly>
+				<Wrapper>
+					<InfoText>
 			(?)
-				<InfoBox>{children}</InfoBox>
-			</InfoText>
-		</Wrapper>);
+						<InfoBox>{children}</InfoBox>
+					</InfoText>
+				</Wrapper>
+			</LargeScreenOnly>
+		</>
+	);
 
 }
 
-/* TODO need to handle mobile (ie cannot hover) */
+//this is a rough breakpoint
+// but the popolver will only 
+const breakpoint = '600px';
+
+const LargeScreenOnly = styled.span`
+    display: none;
+    @media (min-width: ${breakpoint}) {
+        display: inline;
+    }
+`;
+
+const SmallScreenOnly = styled.div`
+    font-size: 10pt;
+    @media (min-width: ${breakpoint}) {
+        display: none;
+    }
+`;
 
 const Wrapper = styled.span`
     position:relative;
 `;
 
+//info box will pop to the right at larger screen sizes
+//and to the bottom on smaller screens
 const InfoBox = styled.div`
     position: absolute;
-    left: 1em;
-    top: 0;
+    left: -130px;
+    top: 1.5em;
+    @media (min-width: 900px) {
+        left: 1em;
+        top: 0;
+    }
     color: #1a1a1a;
     border: 1px solid #666;
     border-radius: 0.5em;
@@ -37,6 +67,7 @@ const InfoBox = styled.div`
     transition: opacity .3s ease-in-out;
     font-size: 10pt;
     font-weight: normal;
+    z-index: 1000;
 `;
 
 const InfoText = styled.a`
