@@ -17,10 +17,13 @@ const ingredientLinesForExactName = [
 	{line: '1 cup sugar, sifted', result: '(using density for sugar (granulated white))'},
 	{line: '1 cup butter', result: '(using density for butter)'},
 	{line: '1 cup butter, softened', result: '(using density for butter)'},
+	{line: '1 cup unsalted butter, cubed', result: '(using density for butter)'},
 	{line: '1 cup flour', result: '(using density for all-purpose flour)'},
 	{line: '1 cup white flour', result: '(using density for all-purpose flour)'},
 	{line: '1 cup A.P. flour', result: '(using density for all-purpose flour)'},
 	{line: '1 cup AP flour', result: '(using density for all-purpose flour)'},
+	{line: '2 cups semisweet chocolate chips (such as Nestlé Toll House)', result: '(using density for chocolate chips)'},
+
 ];
 
 const ingredientLinesForDensity = [
